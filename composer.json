@@ -1,5 +1,5 @@
 {
-    "name": "laravel-views/laravel-views",
+    "name": "motorpath/laravel-views",
     "description": "Laravel package to create beautiful common views like tables using only PHP code",
     "type": "library",
     "license": "MIT",
