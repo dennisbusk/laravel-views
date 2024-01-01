@@ -53,7 +53,7 @@ class ExecuteActionsTest extends TestCase
 
         Livewire::test(MockTableViewWithActions::class)
             ->executeAction(TestConfirmedAction::class, $user)
-            ->assertEmitted('openConfirmationModal', [
+            ->assertDispatched('openConfirmationModal', [
                 'message' => $message,
                 'id' => 'test-confirmed-action',
                 'modelId' => $user->id
@@ -68,7 +68,7 @@ class ExecuteActionsTest extends TestCase
 
         Livewire::test(MockTableViewWithActions::class)
             ->executeAction(TestConfirmedAction::class, $user)
-            ->assertEmitted('openConfirmationModal', [
+            ->assertDispatched('openConfirmationModal', [
                 'message' => 'Do you really want to perform this action?',
                 'id' => 'test-confirmed-action',
                 'modelId' => $user->id
@@ -81,6 +81,6 @@ class ExecuteActionsTest extends TestCase
     {
         Livewire::test(MockTableViewWithActions::class)
             ->executeAction(TestSuccessAction::class, 1)
-            ->assertEmitted('test-event');
+            ->assertDispatched('test-event');
     }
 }

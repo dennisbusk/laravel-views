@@ -5,8 +5,8 @@ namespace LaravelViews\Test;
 use Illuminate\Translation\TranslationServiceProvider;
 use LaravelViews\Facades\UI;
 use LaravelViews\LaravelViewsServiceProvider;
+use Livewire\Features\SupportTesting\Testable;
 use Livewire\LivewireServiceProvider;
-use Livewire\Testing\TestableLivewire;
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
 use Spatie\LaravelRay\RayServiceProvider;
 
@@ -26,7 +26,7 @@ class TestCase extends TestbenchTestCase
          * Macro to check if a user is present in the HTML code
          * @example $livewire->assertSeeUsers($users)
          */
-        TestableLivewire::macro('assertSeeUsers', function ($users, $assert = 'assertSee') {
+        Testable::macro('assertSeeUsers', function ($users, $assert = 'assertSee') {
             foreach ($users as $user) {
                 $this->$assert(htmlspecialchars_decode($user->name))
                     ->$assert($user->email);
@@ -39,8 +39,8 @@ class TestCase extends TestbenchTestCase
          * Macro to check if a user is not present in the HTML code
          * @example $livewire->assertDontSeeUsers($users)
          */
-        TestableLivewire::macro('assertDontSeeUsers', function ($users) {
-            return TestableLivewire::assertSeeUsers($users, 'assertDontSee');
+        Testable::macro('assertDontSeeUsers', function ($users) {
+            return Testable::assertSeeUsers($users, 'assertDontSee');
         });
     }
 

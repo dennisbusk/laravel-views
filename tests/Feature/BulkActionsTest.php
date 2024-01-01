@@ -70,7 +70,7 @@ class BulkActionsTest extends TestCase
         Livewire::test(MockTableViewWithBulkActions::class)
             ->selectAll()
             ->executeBulkAction(TestConfirmedDeleteUsersAction::class)
-            ->assertEmitted('openConfirmationModal', [
+            ->assertDispatched('openConfirmationModal', [
                 'message' => 'Do you really want to perform this action?',
                 'id' => 'test-confirmed-delete-users-action',
             ])
